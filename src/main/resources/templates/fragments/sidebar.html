@@ -1,0 +1,62 @@
+<nav th:fragment="sidebarImports" class="sidebar sidebar-offcanvas " id="sidebar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{../home}" data-toggle="collapse">
+          <i class="mdi mdi-home"></i>
+          <span class="menu-title">&nbsp;&nbsp; HOME</span>
+        </a>
+      </li>
+    
+      <li class="nav-item mt-4">
+        <a class="nav-link"  data-toggle="collapse" href="#">
+          <i class="mdi mdi-clipboard-text"></i>
+          <span class="menu-title">&nbsp;&nbsp; CHAMADO</span>
+        </a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#tecs">
+          <i class="mdi mdi-account-star"></i>
+          <span class="menu-title">&nbsp;&nbsp; TÉCNICOS &nbsp;&nbsp;</span>
+          <i class="mdi mdi-chevron-down"></i>
+        </a>
+        <div class="collapse" id="tecs">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"><a class="nav-link">Novo Técnico</a></li>
+            <li class="nav-item"><a class="nav-link">Lista de Técnicos</a></li>
+            </ul>
+          </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#users">
+          <i class="mdi mdi-account-multiple"></i>
+          <span class="menu-title">&nbsp;&nbsp; USUÁRIOS &nbsp;&nbsp;</span>
+          <i class="mdi mdi-chevron-down"></i>
+        </a>
+        <div class="collapse" id="users">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"><a class="nav-link">Novo Usuario</a></li>
+            <li class="nav-item"><a class="nav-link">Lista de Usuários</a></li>
+            </ul>
+          </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#tables">
+          <i class="mdi mdi-gift"></i>
+          <span class="menu-title">&nbsp;&nbsp; RECURSOS &nbsp;&nbsp;</span>
+          <i class="mdi mdi-chevron-down"></i>
+        </a>
+        <div class="collapse" id="tables">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" th:href="@{../recursos/icons}">Icones</a></li>
+            <li class="nav-item"> <a class="nav-link" th:href="@{../recursos/elementos}">Elementos Básicos</a></li>
+            <li class="nav-item"> <a class="nav-link" th:href="@{../recursos/buttons}">Buttons</a></li>
+          </ul>
+        </div>
+
+      </li>
+
+    </ul>
+  </nav>
