@@ -15,7 +15,19 @@ public class Chamado {
     private Status status;
     private Prioridade prioridade;
 
+    public Chamado(){}
     
+    public Chamado(Integer id, String titulo, LocalDate dataAbertura, LocalDate dataFechamento, String observacao,
+            Status status, Prioridade prioridade) {
+        this.id = id;
+        this.titulo = titulo;
+        this.dataAbertura = dataAbertura;
+        this.dataFechamento = dataFechamento;
+        this.observacao = observacao;
+        this.status = status;
+        this.prioridade = prioridade;
+    }
+
     public Integer getId() {
         return id;
     }
