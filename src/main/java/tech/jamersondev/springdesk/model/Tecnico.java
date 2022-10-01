@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 public class Tecnico extends Pessoa{
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
 
     public List<Chamado> getChamados() {

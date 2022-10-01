@@ -2,11 +2,21 @@ package tech.jamersondev.springdesk.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import tech.jamersondev.springdesk.Enums.Prioridade;
 import tech.jamersondev.springdesk.Enums.Status;
 
+@Entity
 public class Chamado {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String titulo;
     private LocalDate dataAbertura = LocalDate.now();
@@ -14,6 +24,14 @@ public class Chamado {
     private String observacao;
     private Status status;
     private Prioridade prioridade;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id_fk")
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "tecnico_id_fk")
+    private Tecnico tecnico;
 
     public Chamado(){}
     
@@ -69,6 +87,22 @@ public class Chamado {
     }
     public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Tecnico getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
     }
     
     
