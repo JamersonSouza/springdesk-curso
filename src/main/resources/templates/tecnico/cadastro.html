@@ -22,28 +22,28 @@
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Cadastro de Clientes</h3>
+                  <h3 class="font-weight-bold">Cadastro de Técnicos</h3>
                 </div>
               </div>
             </div>
           </div>
                 <!-- conteúdo principal -->
-            <form action="@{cadastrar}" th:object="${usuario}" enctype="multipart/form-data">
+            <form th:action="@{/tecnico/cadastro-tecnico}" method="post" th:object="${tecnico}" enctype="multipart/form-data">
                 <div class="row">
                     <!-- field nome -->
                 <div class="form-group col-4">
                     <label for="nome" class="lblCliente">Nome:</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Nome: ">
+                    <input type="text" class="form-control"  autocomplete="off" th:field="*{nome}" id="nome" placeholder="Nome: ">
                 </div>
                     <!-- field e-mail -->
                 <div class="form-group col-4">
                     <label for="email" class="lblCliente">E-Mail:</label>
-                    <input type="email" class="form-control" id="email" placeholder="E-Mail: ">
+                    <input type="email" class="form-control"  autocomplete="off"  id="email" th:field="*{email}" placeholder="E-Mail: ">
                 </div>
 
                 <div class="form-group col-4">
                     <label for="senha" class="lblCliente">Senha:</label>
-                    <input type="password" class="form-control" id="senha" placeholder="Senha: ">
+                    <input type="password" class="form-control" th:field="*{senha}" id="senha" placeholder="Senha: ">
                 </div>
 
             </div>

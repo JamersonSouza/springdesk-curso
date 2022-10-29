@@ -28,17 +28,17 @@
             </div>
           </div>
                 <!-- conteúdo principal -->
-            <form action="@{cadastrar}" th:object="${usuario}" enctype="multipart/form-data">
+            <form th:action="@{/cliente/cadastro-cliente}" method="post" th:object="${usuario}" enctype="multipart/form-data">
                 <div class="row">
                     <!-- field nome -->
                 <div class="form-group col-4">
                     <label for="nome" class="lblCliente">Nome:</label>
-                    <input type="text" class="form-control" th:field="*{nome}" id="nome" placeholder="Nome: ">
+                    <input type="text" class="form-control" autocomplete="off" th:field="*{nome}" id="nome" placeholder="Nome: ">
                 </div>
                     <!-- field e-mail -->
                 <div class="form-group col-4">
                     <label for="email" class="lblCliente">E-Mail:</label>
-                    <input type="email" class="form-control" th:field="*{email}" id="email" placeholder="E-Mail: ">
+                    <input type="email" class="form-control" autocomplete="off" th:field="*{email}" id="email" placeholder="E-Mail: ">
                 </div>
 
                 <div class="form-group col-4">
