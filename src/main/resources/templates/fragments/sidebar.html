@@ -14,8 +14,8 @@
         </a>
       </li>
     
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#tecs">
+      <li class="nav-item" >
+        <a class="nav-link" data-toggle="collapse" href="#tecs" >
           <i class="mdi mdi-account-star"></i>
           <span class="menu-title">&nbsp;&nbsp; TÉCNICOS &nbsp;&nbsp;</span>
           <i class="mdi mdi-chevron-down"></i>
@@ -23,7 +23,7 @@
         <div class="collapse" id="tecs">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a th:href="@{tecnico/cadastro}" class="nav-link">Novo Técnico</a></li>
-            <li class="nav-item"><a class="nav-link">Lista de Técnicos</a></li>
+            <li class="nav-item"><a th:href="@{tecnico/list-tecnicos}" class="nav-link">Lista de Técnicos</a></li>
             </ul>
           </div>
       </li>
@@ -37,7 +37,7 @@
         <div class="collapse" id="users">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"><a th:href="@{cliente/cadastro}" class="nav-link">Novo Usuario</a></li>
-            <li class="nav-item"><a   class="nav-link">Lista de Usuários</a></li>
+            <li class="nav-item"><a class="nav-link">Lista de Usuários</a></li>
             </ul>
           </div>
       </li>
