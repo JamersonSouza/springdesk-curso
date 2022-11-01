@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+  <head th:replace="~{fragments/head :: headImports}"></head>
+  <style>
+    .lblCliente{font-weight: bold;}
+  </style>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav th:replace="~{fragments/navbar :: navbarImports}"></nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav th:replace="~{fragments/sidebar :: sidebarImports}"></nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+
+          <!-- cabeçalho boas vindas -->
+          <div class="row">
+            <div class="col-md-12 grid-margin">
+              <div class="row">
+                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                  <h3 class="font-weight-bold">Listagem de Técnicos</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+                <!-- conteúdo principal -->
+                <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                      <div class="card table-bg">
+                        <div class="card-people mt-auto">
+                          <h4 class="m-4">Técnicos cadastrados no sistema</h4>
+                          <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Ações</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr th:each="tecs : ${tecnicos}">
+                                <td th:text="${tecs.id}"></td>
+                                <td th:text="${tecs.nome}"></td>
+                                <td th:text="${tecs.email}"></td>
+                                <td><a class="btn btn-warning" th:href="@{editar/{id}(id=${tecs.id})}">EDITAR</a>
+                                <a class="btn btn-danger" th:href="@{excluir/{id}(id=${tecs.id})}">Excluir</a></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <!-- paginação da tabela -->
+                          <nav class="m-4">
+                            <ul class="pagination">
+                              <li class="page-item disabled">
+                                <a class="page-link">Previous</a>
+                              </li>
+                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item " aria-current="page">
+                                <a class="page-link" href="#">2</a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                              </li>
+                            </ul>
+                          </nav>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 grid-margin transparent">
+                     <!-- conteudo indefinido -->
+                    </div>
+                  </div>
+          
+        </div>
+        </div> 
+</body>
+</html>
