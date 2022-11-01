@@ -51,6 +51,14 @@ public class TecnicoController {
 
     }
 
+
+    @GetMapping("list-tecnicos")
+    public ModelAndView tecnicosList(){
+        ModelAndView mv = new ModelAndView("tecnico/tecnico-list");
+        mv.addObject("tecnicos", tecRepository.findAll());
+        return mv;
+    }
+
     @GetMapping("/home-tecnico")
     public ModelAndView home(){
         ModelAndView mv =  new ModelAndView("home/index");
