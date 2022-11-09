@@ -47,12 +47,13 @@
                                 <td th:text="${cliente.id}"></td>
                                 <td th:text="${cliente.nome}"></td>
                                 <td th:text="${cliente.email}"></td>
-                                <td><a class="btn btn-warning" th:href="@{editar/{id}(id=${cliente.id})}">EDITAR</a>
+                                <td><a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" th:href="@{editar/{id}(id=${cliente.id})}">EDITAR</a>
                                 <a class="btn btn-danger" th:href="@{excluir/{id}(id=${cliente.id})}">Excluir</a></td>
                               </tr>
                             </tbody>
                           </table>
                           <!-- paginação da tabela -->
+
                           <nav class="m-4">
                             <ul class="pagination">
                               <li class="page-item disabled">
@@ -73,10 +74,25 @@
                     </div>
                     <div class="col-md-12 grid-margin transparent">
                      <!-- conteudo indefinido -->
-                    </div>
+                    </div>                    
                   </div>
-          
         </div>
         </div> 
+
+        <div th:replace="~{fragments/modal :: modalEdit}"></div>
+
+  <!-- plugins:js -->
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/template.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="../../js/dashboard.js"></script>
+  <!-- End custom js for this page-->
+
+
 </body>
 </html>

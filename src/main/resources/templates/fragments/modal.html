@@ -1,0 +1,45 @@
+
+<form th:action="@{/cliente/cadastro-editar}" method="post" th:object="${usuario}" enctype="multipart/form-data">
+<div th:fragment="modalEdit">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edição de Cliente</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <!-- field nome -->
+            <div class="form-group col-6">
+                <label for="nome" class="lblCliente">Nome:</label>
+                <input type="text" class="form-control" autocomplete="off" id="nome" placeholder="Nome: ">
+            </div>
+                <!-- field e-mail -->
+            <div class="form-group col-6">
+                <label for="email" class="lblCliente">E-Mail:</label>
+                <input type="email" class="form-control" autocomplete="off"  id="email" placeholder="E-Mail: ">
+            </div>
+
+        
+           <div class="form-group col-12">
+                <label for="senha" class="lblCliente">Perfil:</label>
+                <select name="" id="" class="form-control" >
+                    <option th:each="perfil : ${perfils}" th:text="${perfil}" th:value="${perfil}"></option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Salvar Alterações</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</form>
