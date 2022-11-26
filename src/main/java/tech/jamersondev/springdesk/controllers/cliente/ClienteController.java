@@ -69,5 +69,19 @@ public class ClienteController {
         ModelAndView mv =  new ModelAndView("home/index");
         return mv;
     }
+
+    @GetMapping("/editar/{id}")
+    public ModelAndView editar(@PathVariable("id") Integer id){
+        ModelAndView mv =  new ModelAndView("cliente/editar");
+        mv.addObject("perfils", Perfil.values());
+        mv.addObject("usuario", clienteRepo.findById(id));
+        return mv;
+    }
+
+    @PostMapping("/editar-cliente")
+    public ModelAndView editar(Cliente cliente){
+        clienteRepo.save(cliente);
+        return clientesList();
+    }
     
 }
