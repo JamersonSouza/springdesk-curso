@@ -80,6 +80,7 @@ public class ClienteController {
 
     @PostMapping("/editar-cliente")
     public ModelAndView editar(Cliente cliente){
+        ModelAndView mv =  new ModelAndView("cliente/editar");
         clienteRepo.save(cliente);
         return clientesList();
     }

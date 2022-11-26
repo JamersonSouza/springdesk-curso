@@ -47,7 +47,7 @@
                                 <td th:text="${cliente.id}"></td>
                                 <td th:text="${cliente.nome}"></td>
                                 <td th:text="${cliente.email}"></td>
-                                <td><a class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" th:href="@{editar/{id}(id=${cliente.id})}">EDITAR</a>
+                                <td><a class="btn btn-warning" th:href="@{editar/{id}(id=${cliente.id})}">EDITAR</a>
                                 <a class="btn btn-danger" th:href="@{excluir/{id}(id=${cliente.id})}">Excluir</a></td>
                               </tr>
                             </tbody>
