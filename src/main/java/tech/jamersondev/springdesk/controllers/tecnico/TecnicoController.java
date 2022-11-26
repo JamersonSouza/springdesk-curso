@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -63,6 +64,21 @@ public class TecnicoController {
     public ModelAndView home(){
         ModelAndView mv =  new ModelAndView("home/index");
         return mv;
+    }
+
+    @GetMapping("/editar/{id}")
+    public ModelAndView editar(@PathVariable("id") Integer id){
+        ModelAndView mv =  new ModelAndView("tecnico/editar");
+        mv.addObject("perfils", Perfil.values());
+        mv.addObject("tec", tecRepository.findById(id));
+        return mv;
+    }
+
+    @PostMapping("/editar-tecnico")
+    public ModelAndView editar(Tecnico tecnico){
+        ModelAndView mv =  new ModelAndView("tecnico/editar");
+        tecRepository.save(tecnico);
+        return tecnicosList();
     }
 
     
