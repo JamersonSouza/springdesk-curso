@@ -1,14 +1,14 @@
 <nav th:fragment="sidebarImports" class="sidebar sidebar-offcanvas " id="sidebar">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link" th:href="@{../home}" data-toggle="collapse">
+        <a class="nav-link" th:href="@{home}" >
           <i class="mdi mdi-home"></i>
           <span class="menu-title">&nbsp;&nbsp; HOME</span>
         </a>
       </li>
     
       <li class="nav-item mt-4">
-        <a class="nav-link"  data-toggle="collapse" href="#">
+        <a class="nav-link"   th:href="@{ticket/criar}" >
           <i class="mdi mdi-clipboard-text"></i>
           <span class="menu-title">&nbsp;&nbsp; CHAMADO</span>
         </a>
