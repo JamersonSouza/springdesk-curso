@@ -34,30 +34,25 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Data de Abertura</th>
+                        <th scope="col">Titulo do Chamado</th>
+                        <th scope="col">Observação do Chamado</th>
+                        <th scope="col">Prioridade</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Técnico Responsável</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                      <tr th:each="chamados : ${chamadosList}">
+                        <td th:text="${chamados.id}"></td>
+                        <td th:text="${chamados.dataAbertura}"></td>
+                        <td th:text="${chamados.titulo}"></td>
+                        <td th:text="${chamados.observacao}"></td>
+                        <td th:text="${chamados.prioridade}"></td>
+                        <td th:text="${chamados.status}"></td>
+                        <td th:text="${chamados.tecnico.nome}"></td>
                       </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                      </tr>
+                      
                     </tbody>
                   </table>
                   <!-- paginação da tabela -->
