@@ -106,6 +106,13 @@ public class Chamado {
     public void setTecnico(Tecnico tecnico) {
         this.tecnico = tecnico;
     }
+
+    @Override
+    public String toString() {
+        return "Chamado [id=" + id + ", titulo=" + titulo + ", dataAbertura=" + dataAbertura + ", dataFechamento="
+                + dataFechamento + ", observacao=" + observacao + ", status=" + status + ", prioridade=" + prioridade
+                + ", cliente=" + cliente + ", tecnico=" + tecnico + "]";
+    }
     
    
    
