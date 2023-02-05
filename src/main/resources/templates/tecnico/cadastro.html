@@ -30,6 +30,7 @@
                 <!-- conteúdo principal -->
             <form th:action="@{/tecnico/cadastro-tecnico}" method="post" th:object="${tecnico}" enctype="multipart/form-data">
                 <div class="row">
+                  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                     <!-- field nome -->
                 <div class="form-group col-4">
                     <label for="nome" class="lblCliente">Nome:</label>

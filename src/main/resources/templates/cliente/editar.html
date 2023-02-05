@@ -30,7 +30,7 @@
                 <!-- conteúdo principal -->
             <form th:action="@{/cliente/editar-cliente}" method="post" th:object="${usuario}" enctype="multipart/form-data">
                 <div class="row">
-
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
                   <input type="hidden" th:field="*{id}">
                     <!-- field nome -->
                 <div class="form-group col-4">
