@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import tech.jamersondev.springdesk.Enums.Perfil;
 import tech.jamersondev.springdesk.model.Tecnico;
 import tech.jamersondev.springdesk.repository.TecnicoRepository;
+import tech.jamersondev.springdesk.util.PasswordUtil;
 import tech.jamersondev.springdesk.util.UploadUtil;
 
 @Controller
@@ -35,6 +36,8 @@ public class TecnicoController {
     @PostMapping("/cadastro-tecnico")
     public ModelAndView cadastro(@ModelAttribute Tecnico tecnico, @RequestParam("file") MultipartFile imagem){
        ModelAndView mv =  new ModelAndView("tecnico/cadastro");
+       String hashSenha = PasswordUtil.encoder(tecnico.getSenha());
+       tecnico.setSenha(hashSenha);
        mv.addObject("tecnico", tecnico);
 
        try {
@@ -81,5 +84,4 @@ public class TecnicoController {
         return tecnicosList();
     }
 
-    
 }
