@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import tech.jamersondev.springdesk.Enums.Perfil;
 import tech.jamersondev.springdesk.model.Cliente;
 import tech.jamersondev.springdesk.repository.ClienteRepository;
+import tech.jamersondev.springdesk.util.PasswordUtil;
 import tech.jamersondev.springdesk.util.UploadUtil;
 
 @Controller
@@ -34,6 +35,10 @@ public class ClienteController {
     @PostMapping("/cadastro-cliente")
     public ModelAndView cadastro(@ModelAttribute Cliente cliente, @RequestParam("file") MultipartFile imagem){
        ModelAndView mv =  new ModelAndView("cliente/cadastro");
+
+        String hashSenha = PasswordUtil.encoder(cliente.getSenha());
+        cliente.setSenha(hashSenha);
+
        mv.addObject("usuario", cliente);
 
        try {
