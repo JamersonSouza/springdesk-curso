@@ -22,10 +22,16 @@ public class WebConfigProject extends WebSecurityConfigurerAdapter{
 
         http.authorizeRequests()
         .antMatchers("/images/**").permitAll()
+        .antMatchers("/css/**").permitAll()
         .antMatchers("/js/**").permitAll()
         .antMatchers("/fonts/**").permitAll()
         .antMatchers("/vendors/**").permitAll()
         .anyRequest().authenticated();
+
+        http.formLogin()
+        .loginPage("/login")
+        .defaultSuccessUrl("/home")
+        .permitAll();
         
     }
 
