@@ -48,5 +48,4 @@ public class TecnicoUserDetailsImpl implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
-    
 }
