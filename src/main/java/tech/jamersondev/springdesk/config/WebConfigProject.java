@@ -30,7 +30,7 @@ public class WebConfigProject extends WebSecurityConfigurerAdapter{
 
         http.formLogin()
         .loginPage("/login")
-        .defaultSuccessUrl("/home")
+        .defaultSuccessUrl("/")
         .permitAll();
         
     }
