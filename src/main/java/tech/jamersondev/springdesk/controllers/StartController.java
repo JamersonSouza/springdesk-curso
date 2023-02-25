@@ -15,7 +15,7 @@ public class StartController {
     @Autowired
     private ChamadoRepository chamadoRepository;
 
-    @GetMapping("home")
+    @GetMapping()
     public ModelAndView start(){
         ModelAndView mv = new ModelAndView("home/index");
         mv.addObject("chamadosList", chamadoRepository.findAllChamados());
