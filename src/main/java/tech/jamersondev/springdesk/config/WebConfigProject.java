@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import tech.jamersondev.springdesk.services.ClienteUserDetailsService;
 import tech.jamersondev.springdesk.services.TecnicoUserDetailsService;
 
 @Configuration
@@ -16,6 +17,9 @@ public class WebConfigProject extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private TecnicoUserDetailsService tecnicoUserDetailsService;
+
+    @Autowired
+    private ClienteUserDetailsService clienteUserDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -37,10 +41,13 @@ public class WebConfigProject extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(clienteUserDetailsService)
+        .passwordEncoder(new BCryptPasswordEncoder());
         auth.userDetailsService(tecnicoUserDetailsService)
         .passwordEncoder(new BCryptPasswordEncoder());
     }
 
+  
 
     
 }
