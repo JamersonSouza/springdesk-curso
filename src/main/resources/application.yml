@@ -3,6 +3,7 @@ spring:
         url: jdbc:mysql://localhost:3306/springdesk
         username: neo
         password: zero81
+        driver-class-name: com.mysql.jdbc.Driver
     jpa:
         show-sql: true
         hibernate:
