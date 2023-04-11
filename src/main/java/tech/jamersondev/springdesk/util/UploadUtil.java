@@ -17,7 +17,7 @@ public class UploadUtil {
             try {
                 
                 //criando diretorio para armazena o arquivo
-                String pastaUploadImagem = "C:\\Users\\neo\\Desktop\\springdesk-curso\\src\\main\\resources\\static\\images\\img-uploads";
+                String pastaUploadImagem = "C:\\curso-spring\\springdesk-curso\\src\\main\\resources\\static\\images\\img-uploads";
                 File dir = new File(pastaUploadImagem);
                 if(!dir.exists()){
                     dir.mkdirs();
