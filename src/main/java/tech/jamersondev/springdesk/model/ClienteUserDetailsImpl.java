@@ -13,6 +13,18 @@ public class ClienteUserDetailsImpl implements UserDetails{
         this.cliente = cliente;
     }
 
+    public Integer getId(){
+        return cliente.getId();
+    }
+
+    public String getNome(){
+        return cliente.getNome();
+    }
+
+    public String displayImage(){
+        return cliente.getImagem();
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
