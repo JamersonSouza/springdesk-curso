@@ -2,6 +2,7 @@ package tech.jamersondev.springdesk.controllers.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -90,4 +91,34 @@ public class ClienteController {
         return clientesList();
     }
     
+
+    @GetMapping("/editar-perfil")
+    public ModelAndView editarPerfil(@RequestParam("id") Integer id){
+        ModelAndView mv = new ModelAndView("cliente/editProfile");
+        mv.addObject("usuario", clienteRepo.findById(id));
+        return mv;
+    }
+
+    @PostMapping("/editar-perfil")
+    public ModelAndView editarPerfil(@ModelAttribute Cliente cliente, @RequestParam("file") MultipartFile imagem){
+        ModelAndView mv = new ModelAndView("cliente/editProfile");
+        
+        try {
+            if(UploadUtil.fazerUploadImagem(imagem)){
+                cliente.setImagem(imagem.getOriginalFilename());
+            }
+            clienteRepo.save(cliente);
+            System.out.println("Salvo com sucesso: " + cliente.getNome() + " " + cliente.getImagem());
+            return home();
+           } catch (Exception e) {
+                mv.addObject("msgErro", e.getMessage());
+                System.out.println("Erro ao salvar " + e.getMessage());
+                return mv;
+           }
+    
+
+    }
+
+    
 }
+
