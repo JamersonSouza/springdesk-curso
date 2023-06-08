@@ -3,7 +3,11 @@ package tech.jamersondev.springdesk.model;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import tech.jamersondev.springdesk.Enums.Perfil;
+
 
 public class ClienteUserDetailsImpl implements UserDetails{
 
@@ -27,7 +31,13 @@ public class ClienteUserDetailsImpl implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Perfil perfil = cliente.getPerfil();
+        if(perfil == Perfil.ADMIN){
+            perfil = Perfil.ADMIN;
+        }else{
+            perfil = Perfil.CLIENTE;
+        }
+        return AuthorityUtils.createAuthorityList(perfil.toString());
     }
 
     @Override
