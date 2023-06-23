@@ -2,7 +2,6 @@ package tech.jamersondev.springdesk.controllers.cliente;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +28,8 @@ public class ClienteController {
     public ModelAndView cadastro(Cliente cliente){
         ModelAndView mv = new ModelAndView("cliente/cadastro");
         mv.addObject("usuario", new Cliente());
-        mv.addObject("perfils", Perfil.values());
+        Perfil[] perfilCliente = {Perfil.CLIENTE};
+        mv.addObject("perfils", perfilCliente);
         return mv;
     }
 

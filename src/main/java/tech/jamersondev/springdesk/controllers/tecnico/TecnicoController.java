@@ -29,7 +29,8 @@ public class TecnicoController {
     public ModelAndView cadastro(Tecnico tecnico){
         ModelAndView mv = new ModelAndView("tecnico/cadastro");
         mv.addObject("tecnico", tecnico);
-        mv.addObject("perfils", Perfil.values());
+        Perfil[] profiles = {Perfil.ADMIN, Perfil.TECNICO};
+        mv.addObject("perfils", profiles);
         return mv;
     }
 
