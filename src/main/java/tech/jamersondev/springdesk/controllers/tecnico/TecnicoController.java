@@ -1,6 +1,9 @@
 package tech.jamersondev.springdesk.controllers.tecnico;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import tech.jamersondev.springdesk.Enums.Perfil;
+import tech.jamersondev.springdesk.model.Chamado;
 import tech.jamersondev.springdesk.model.Tecnico;
+import tech.jamersondev.springdesk.repository.ChamadoRepository;
 import tech.jamersondev.springdesk.repository.TecnicoRepository;
 import tech.jamersondev.springdesk.util.PasswordUtil;
 import tech.jamersondev.springdesk.util.UploadUtil;
@@ -24,6 +29,8 @@ public class TecnicoController {
     @Autowired
     private TecnicoRepository tecRepository;
 
+    @Autowired
+    private ChamadoRepository chamadoRepository;
 
     @GetMapping("/cadastro")
     public ModelAndView cadastro(Tecnico tecnico){
@@ -47,7 +54,7 @@ public class TecnicoController {
         }
         tecRepository.save(tecnico);
         System.out.println("Salvo com sucesso: " + tecnico.getNome() + " " + tecnico.getImagem());
-        return home();
+        return home(1);
        } catch (Exception e) {
             mv.addObject("msgErro", e.getMessage());
             System.out.println("Erro ao salvar " + e.getMessage());
@@ -65,8 +72,11 @@ public class TecnicoController {
     }
 
     @GetMapping("/home-tecnico")
-    public ModelAndView home(){
+    public ModelAndView home(@RequestParam(defaultValue = "1") int page){
         ModelAndView mv =  new ModelAndView("home/index");
+         Pageable pageReq = PageRequest.of((page - 1),  2);
+        Page<Chamado> resultPage = chamadoRepository.findAll(pageReq);
+        mv.addObject("chamadosList", resultPage);
         return mv;
     }
 
