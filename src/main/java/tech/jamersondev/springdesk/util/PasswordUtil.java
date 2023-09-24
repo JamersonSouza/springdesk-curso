@@ -8,5 +8,10 @@ public class PasswordUtil {
         BCryptPasswordEncoder encoderSenha = new BCryptPasswordEncoder();
         return encoderSenha.encode(senha);
     }
+
+    public static boolean matchersPassword(String senhaRequest, String senhaHashBD){
+        BCryptPasswordEncoder encoderSenha = new BCryptPasswordEncoder();
+        return encoderSenha.matches(senhaRequest, senhaHashBD);
+    }
     
 }
