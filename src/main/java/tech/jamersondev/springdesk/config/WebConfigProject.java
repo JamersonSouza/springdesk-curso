@@ -43,6 +43,9 @@ public class WebConfigProject extends WebSecurityConfigurerAdapter{
             new AntPathRequestMatcher("/logout", "GET")
         )
         .logoutSuccessUrl("/login");
+
+        http.rememberMe()
+        .key("keyRemember-me");
         
     }
 
