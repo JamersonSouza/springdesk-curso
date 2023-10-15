@@ -32,5 +32,16 @@ public class InjectDB {
         clienteRepository.saveAll(Arrays.asList(cliente1));
          tecnicoRepository.saveAll(Arrays.asList(tecnico1));
     }
+
+      public void injectDBTest(){
+        Tecnico tecnico1 = new Tecnico(null, "JamersonTeste", "jamersontest@mail.com",
+         PasswordUtil.encoder("123456789"), null, Perfil.TECNICO);
+
+        Cliente cliente1 = new Cliente(null, "TerezaTeste", "terezatest@mail.com", PasswordUtil.encoder("123456789"),null, 
+        Perfil.CLIENTE);
+
+        clienteRepository.saveAll(Arrays.asList(cliente1));
+         tecnicoRepository.saveAll(Arrays.asList(tecnico1));
+    }
     
 }
