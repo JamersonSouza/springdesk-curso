@@ -15,6 +15,8 @@ Em seguida, execute os seguintes comandos em seu terminal para clonar o reposit�
 
 > git clone https://github.com/JamersonSouza/springdesk-curso.git
 
+**PS:** O projeto conta com 2 branch, na master está disponível o projeto completo e finalizado. Na branch **springdesk-started** está disponível o front-end do projeto para os alunos que estão começando o curso agora no Youtube e precisam do template.
+
 > code . //para abrir o projeto no VsCode
 
 ### Configuração :wrench:
