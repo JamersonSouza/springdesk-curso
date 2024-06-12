@@ -6,7 +6,7 @@ Este projeto foi desenvolvido a partir das aulas do meu curso no youtube, é a a
 Antes de começar, certifique-se de ter as seguintes ferramentas instaladas em sua máquina: 
 
 * Git
-* JDK 8 ou Superior
+* JDK 17
 * Maven
 * Visual Studio Code
 * MySQL 
