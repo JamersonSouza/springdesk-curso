@@ -16,16 +16,25 @@ import tech.jamersondev.springdesk.Enums.StatusTicket;
 import tech.jamersondev.springdesk.model.Chamado;
 import tech.jamersondev.springdesk.repository.ChamadoRepository;
 import tech.jamersondev.springdesk.repository.TecnicoRepository;
+import tech.jamersondev.springdesk.services.ChamadoService;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/ticket")
 public class Chamados {
 
-    @Autowired
-    private TecnicoRepository tecnicoRepository;
+    private final TecnicoRepository tecnicoRepository;
     
-    @Autowired
-    private ChamadoRepository chamadoRepository;
+    private final ChamadoRepository chamadoRepository;
+    private final ChamadoService ticketService;
+
+    public Chamados(TecnicoRepository tecnicoRepository, ChamadoRepository chamadoRepository, ChamadoService ticketService) {
+        this.tecnicoRepository = tecnicoRepository;
+        this.chamadoRepository = chamadoRepository;
+        this.ticketService = ticketService;
+    }
 
     @GetMapping
     public ModelAndView chamadoHome(@RequestParam(defaultValue = "1") int page){
@@ -52,4 +61,12 @@ public class Chamados {
         chamadoRepository.save(chamado);
         return chamadoHome(1);
     }
+
+    @GetMapping("/export")
+    public void exportCsv(HttpServletResponse response) throws IOException {
+        response.setContentType("text/csv");
+        response.setHeader("Content-Disposition", "attachment; filename=relatorio.csv");
+        this.ticketService.exportCsv(response.getWriter());
+    }
+
 }
