@@ -29,7 +29,10 @@
             <div class="col-md-12 grid-margin stretch-card">
               <div class="card table-bg">
                 <div class="card-people mt-auto">
-                  <h4 class="m-4">Últimos chamados inseridos</h4>
+                  <div class="d-flex justify-content-between align-items-baseline">
+                    <h4 class="m-4">Últimos chamados inseridos</h4>
+                    <a class="btn btn-success" th:href="@{ticket/export}">Exportar  <i style="vertical-align: middle;" class="mdi mdi-file-excel"></i> </a>
+                  </div>
                   <table class="table table-striped">
                     <thead>
                       <tr>
